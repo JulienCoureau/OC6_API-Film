@@ -1,0 +1,381 @@
+/* Réinitialisation des marges et padding */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Style du body */
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f5f5f5;
+  color: #333;
+  line-height: 1.6;
+}
+
+/* Header avec titre principal */
+header {
+  background-color: #4a5568;
+  color: white;
+  padding: 20px;
+  text-align: center;
+}
+
+header h1 {
+  font-size: 24px;
+  font-weight: bold;
+}
+
+/* Conteneur principal centré */
+main {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+}
+
+/* Styles des sections */
+section {
+  margin-bottom: 40px;
+}
+
+section h2 {
+  font-size: 22px;
+  font-weight: bold;
+  margin-bottom: 20px;
+  color: #1a202c;
+}
+
+/* Hero section pour le meilleur film */
+#meilleur-film .film-hero {
+  display: flex;
+  gap: 20px;
+  background-color: white;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+}
+
+#meilleur-film .film-hero img {
+  width: 300px;
+  height: 400px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+#meilleur-film .film-info {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+#meilleur-film .film-info h3 {
+  font-size: 28px;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+#meilleur-film .film-info p {
+  font-size: 16px;
+  line-height: 1.6;
+  margin-bottom: 20px;
+}
+
+#meilleur-film .film-info button {
+  background-color: #e53e3e;
+  color: white;
+  border: none;
+  padding: 12px 30px;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 25px;
+  cursor: pointer;
+  align-self: flex-start;
+}
+
+#meilleur-film .film-info button:hover {
+  background-color: #c53030;
+}
+
+/* Grille de films avec 3 colonnes sur desktop */
+.films-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+/* Carte de film avec overlay */
+.film-card {
+  background-color: white;
+  border-radius: 4px;
+  overflow: hidden;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  cursor: pointer;
+  transition: transform 0.2s;
+  position: relative;
+}
+
+.film-card:hover {
+  transform: translateY(-5px) scale(1.02);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.film-card img {
+  width: 100%;
+  height: 400px;
+  object-fit: cover;
+  display: block;
+}
+
+/* Bandeau overlay toujours visible */
+.film-overlay {
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background: linear-gradient(to top, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.6));
+  color: white;
+  padding: 15px;
+  /* Bandeau toujours visible, pas de transform */
+  transition: transform 0.3s ease;
+}
+
+/* Suppression du comportement hover sur desktop - le bandeau reste toujours visible */
+
+.film-overlay h3 {
+  font-size: 16px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color: white;
+}
+
+.film-overlay button {
+  background-color: #e53e3e;
+  color: white;
+  border: none;
+  padding: 8px 20px;
+  font-size: 14px;
+  font-weight: bold;
+  border-radius: 20px;
+  cursor: pointer;
+}
+
+.film-overlay button:hover {
+  background-color: #c53030;
+}
+
+/* Boutons "Voir plus" / "Voir moins" */
+.voir-plus {
+  background-color: #e53e3e;
+  color: white;
+  border: none;
+  padding: 10px 25px;
+  font-size: 14px;
+  font-weight: bold;
+  border-radius: 20px;
+  cursor: pointer;
+  display: block;
+  margin: 0 auto;
+}
+
+.voir-plus:hover {
+  background-color: #c53030;
+}
+
+/* Suppression du display:none sur desktop pour garder les boutons visibles */
+
+@media (min-width: 1025px) {
+  .film-card:nth-child(n) {
+    display: block;
+  }
+}
+
+/* Menu déroulant pour la catégorie dynamique */
+#autres-categories select {
+  padding: 10px 15px;
+  font-size: 16px;
+  border: 2px solid #cbd5e0;
+  border-radius: 4px;
+  background-color: white;
+  cursor: pointer;
+  margin-bottom: 10px;
+}
+
+#autres-categories p {
+  font-size: 14px;
+  color: #718096;
+  margin-bottom: 20px;
+}
+
+/* Fenêtre modale pour les détails du film */
+dialog {
+  border: none;
+  border-radius: 8px;
+  padding: 0;
+  max-width: 800px;
+  /* largeur minimale pour eviter modal trop petite */
+  width: 90%;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  max-height: 90vh;
+  overflow-y: auto;
+}
+
+dialog::backdrop {
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.modal-content {
+  padding: 30px;
+  background-color: white;
+}
+
+.modal-content h2 {
+  font-size: 32px;
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+.modal-content p {
+  margin-bottom: 10px;
+  line-height: 1.6;
+}
+
+.modal-content .film-year-genre {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.modal-content .film-rating,
+.modal-content .film-imdb,
+.modal-content .film-boxoffice {
+  font-size: 16px;
+  color: #4a5568;
+}
+
+.modal-content .film-directors,
+.modal-content .film-actors {
+  font-weight: bold;
+  margin-top: 15px;
+}
+
+.modal-content img {
+  float: right;
+  width: 300px;
+  height: 450px;
+  object-fit: cover;
+  border-radius: 4px;
+  margin: 0 0 20px 20px;
+}
+
+.modal-content .film-synopsis {
+  text-align: justify;
+  margin-top: 20px;
+  margin-bottom: 20px;
+}
+
+.modal-content #fermer-modal {
+  background-color: #e53e3e;
+  color: white;
+  border: none;
+  padding: 12px 30px;
+  font-size: 16px;
+  font-weight: bold;
+  border-radius: 25px;
+  cursor: pointer;
+  display: block;
+  margin: 20px auto 0;
+}
+
+.modal-content #fermer-modal:hover {
+  background-color: #c53030;
+}
+
+/* Responsive tablette : 2 colonnes, 4 films visibles par défaut */
+@media (max-width: 1024px) {
+  .films-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  /* Masquer les films au-delà du 4ème sur tablette */
+  .film-card:nth-child(n + 5):not(.supplementaire) {
+    display: none;
+  }
+
+  /* Réafficher les films supplémentaires avec le bouton "Voir plus" */
+  .film-card.supplementaire {
+    display: block;
+  }
+
+  #meilleur-film .film-hero {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  #meilleur-film .film-hero img {
+    width: 100%;
+    max-width: 300px;
+  }
+
+  /* Supprime le code du bandeau statique qui etait en double ici */
+}
+
+/* Responsive mobile : 1 colonne, 2 films visibles par défaut */
+@media (max-width: 768px) {
+  .films-grid {
+    grid-template-columns: repeat(1, 1fr);
+  }
+
+  /* Masquer les films au-delà du 2ème sur mobile */
+  .film-card:nth-child(n + 3):not(.supplementaire) {
+    display: none;
+  }
+
+  /* Réafficher les films supplémentaires avec le bouton "Voir plus" */
+  .film-card.supplementaire {
+    display: block;
+  }
+
+  header h1 {
+    font-size: 20px;
+  }
+
+  section h2 {
+    font-size: 18px;
+  }
+
+  /* modale plus grande sur mobile avec meilleure lisibilite */
+  dialog {
+    width: 95%;
+    max-width: none;
+    max-height: 95vh;
+    margin: 10px auto;
+  }
+
+  .modal-content {
+    padding: 15px;
+  }
+
+  .modal-content h2 {
+    font-size: 22px;
+    margin-bottom: 10px;
+  }
+
+  .modal-content img {
+    float: none;
+    display: block;
+    margin: 15px auto;
+    width: 150px;
+    height: 200px;
+    object-fit: cover;
+  }
+
+  .modal-content p {
+    font-size: 14px;
+  }
+
+}

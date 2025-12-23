@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JustStreamIt - Vidéo à la demande</title>
+    <link rel="stylesheet" href="styles.css?v=4">
+</head>
+<body>
+    
+    <header>
+        <h1>Vidéo à la demande</h1>
+    </header>
+
+    <main>
+        
+        <section id="meilleur-film">
+            <h2>Meilleur film</h2>
+            <div class="film-hero">
+                <!-- Image vide qui sera remplie par le JS -->
+                <img src="/placeholder.svg" alt="Meilleur film" id="meilleur-film-image">
+                <div class="film-info">
+                    <h3 id="meilleur-film-titre"></h3>
+                    <p id="meilleur-film-description"></p>
+                    <button id="meilleur-film-details">Détails</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="films-mieux-notes">
+            <h2>Films les mieux notés</h2>
+            <div class="films-grid"></div>
+            <button id="voir-plus-mieux-notes" class="voir-plus">Voir plus</button>
+        </section>
+
+        <section id="categorie-mystery">
+            <h2>Mystery</h2>
+            <div class="films-grid"></div>
+            <button id="voir-plus-mystery" class="voir-plus">Voir plus</button>
+        </section>
+
+        <section id="categorie-2">
+            <h2>Action</h2>
+            <div class="films-grid"></div>
+            <button id="voir-plus-action" class="voir-plus">Voir plus</button>
+        </section>
+
+        <section id="autres-categories">
+            <h2>Autres catégories</h2>
+            
+            <select id="select-categorie">
+                <option value="action">Films d'action</option>
+                <option value="comedy" selected>Comédie</option>
+                <option value="family">Famille</option>
+                <option value="fantasy">Fantaisie</option>
+                <option value="horror">Horreur</option>
+                <option value="sci-fi">Science-fiction</option>
+                <option value="western">Western</option>
+            </select>
+            
+            <p>Catégorie choisie dans le menu déroulant</p>
+            
+            <div class="films-grid"></div>
+            
+            <button id="voir-plus-autres" class="voir-plus">Voir plus</button>
+        </section>
+
+    </main>
+
+    <dialog id="modal-film">
+        <div class="modal-content">
+            <h2 id="modal-titre"></h2>
+            
+            <p class="film-year-genre"></p>
+            <p class="film-rating"></p>
+            <p class="film-imdb"></p>
+            <p class="film-boxoffice"></p>
+            
+            <p class="film-directors"><strong>Réalisé par:</strong></p>
+            <p id="modal-directors"></p>
+            
+            <!-- Image vide qui sera remplie par le JS -->
+            <img src="/placeholder.svg" alt="Affiche du film" id="modal-image">
+            
+            <p class="film-synopsis" id="modal-synopsis"></p>
+            
+            <p class="film-actors"><strong>Avec:</strong></p>
+            <p id="modal-actors"></p>
+            
+            <button id="fermer-modal">Fermer</button>
+        </div>
+    </dialog>
+
+    <script src="script.js"></script>
+</body>
+</html>
